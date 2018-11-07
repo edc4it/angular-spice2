@@ -9,13 +9,14 @@ import {RecipeService} from "../recipe-service/recipe.service";
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Recipe[];
+  recipes: Recipe[] = [];
 
   constructor(readonly service: RecipeService) {
   }
 
   ngOnInit() {
-    this.service.getAll().then(r => this.recipes = r)
+    this.service.getAll()
+      .subscribe((recipe) => this.recipes.push(recipe));
   }
 
 }
