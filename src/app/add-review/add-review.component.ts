@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ReviewImpl} from "../recipe-service/recipe";
 
 @Component({
   selector: 'app-add-review',
@@ -9,8 +10,10 @@ export class AddReviewComponent implements OnInit {
 
   constructor() { }
 
-  submitReview(v : any){
-    console.log(v)
+  review  = new ReviewImpl("",5,"",new Date());
+
+  submitReview(){
+    console.log("review",this.review)
   }
 
   ngOnInit() {
