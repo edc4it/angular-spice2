@@ -5,15 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeFilterPipe } from './recipe-filter.pipe';
 import { AppComponent } from './app.component';
+import { AddReviewComponent } from './add-review/add-review.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     RecipeListComponent,
     RecipeFilterPipe,
-    AppComponent
+    AppComponent,
+    AddReviewComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
