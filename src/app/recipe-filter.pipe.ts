@@ -7,7 +7,10 @@ import {Recipe} from "./recipe-service/recipe";
 export class RecipeFilterPipe implements PipeTransform {
 
   transform(rs: Recipe[], s: string): Recipe[] {
-    return rs.filter((r) => r.title.toLowerCase().includes(s.toLowerCase()))
+    if (s===undefined)
+      return rs;
+    else
+      return rs.filter((r) => r.title.toLowerCase().includes(s.toLowerCase()));
   }
 
 }

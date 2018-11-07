@@ -7,13 +7,15 @@ import { RecipeFilterPipe } from './recipe-filter.pipe';
 import { AppComponent } from './app.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import {FormsModule} from "@angular/forms";
+import { SearchComponentComponent } from './search-component/search-component.component';
 
 @NgModule({
   declarations: [
     RecipeListComponent,
     RecipeFilterPipe,
     AppComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    SearchComponentComponent
   ],
   imports: [
     BrowserModule,
