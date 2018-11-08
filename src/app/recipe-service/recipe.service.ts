@@ -1,20 +1,20 @@
 import {Injectable} from "@angular/core";
-import {testData} from "../data/mock-recipes";
 import {Recipe} from "./recipe";
 import {Observable} from "rxjs";
-import { from } from 'rxjs';
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  getAll(): Observable<Recipe> {
-    //return from(testData)
-    return new Observable<Recipe>((observable) => {
-      const sortedRecipes = testData.sort((r1: Recipe, r2: Recipe) => r2.datePublished < r1.datePublished ? -1 : 1);
-      sortedRecipes.forEach(r => observable.next(r));
-    })
+  constructor(private http: HttpClient) { }
+
+  getAll(): Observable<Recipe[]> {
+    const httpParams = new HttpParams().set("sort", "datePublished");
+    return this.http.get("http://localhost:5000/api/recipes",{
+      params: httpParams
+    }) as Observable<Recipe[]>;
   }
 
 }
