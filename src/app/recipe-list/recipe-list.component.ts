@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from "../recipe-service/recipe";
 import {RecipeService} from "../recipe-service/recipe.service";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
+import {switchMap} from "rxjs/operators"
 
 @Component({
   templateUrl: './recipe-list.component.html',
@@ -10,17 +11,16 @@ import {Observable} from "rxjs";
 })
 export class RecipeListComponent implements OnInit {
 
+  searchStream = new Subject<string>();
+
   recipes: Observable<Recipe[]>;
 
-  constructor(readonly service: RecipeService) {
+  constructor(private service: RecipeService ) { }
+
+  ngOnInit(): void {
+    this.recipes = this.searchStream.pipe(switchMap((s) => this.service.getAll(s)));
+    setTimeout(() => this.searchStream.next(""), 0)
   }
 
-  search(s? : string) {
-    this.recipes = this.service.getAll(s);
-  }
-
-  ngOnInit() {
-    this.search()
-  }
 
 }
