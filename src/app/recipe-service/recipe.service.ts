@@ -20,4 +20,8 @@ export class RecipeService {
     }) as Observable<Recipe[]>;
   }
 
+  get(id: string): Observable<Recipe> {
+    return this.http.get<Recipe>(`http://localhost:5000/api/recipes/${id}`)
+  }
+
 }

@@ -8,8 +8,9 @@
 
       <article class="recipe-thumb clearfix"
                *ngFor="let recipe of recipes | async; let isOdd=odd; let isEven=even">
-        <img [class.left]="isOdd" [class.right]="isEven" [src]="'/assets/images/recipes/'+recipe.image"/>
-
+        <a [routerLink]="['/recipe', recipe.id]">
+            <img [class.left]="isOdd" [class.right]="isEven" [src]="'/assets/images/recipes/'+recipe.image"/>
+        </a>
         <div class="recipe-title">{{recipe.title}}</div>
         <div class="recipe-date">{{recipe.datePublished | date}}</div>
       </article>

@@ -1,0 +1,40 @@
+.recipe-detail {
+
+  img {
+    width: 100%;
+
+  }
+
+  .recipe-title {
+    display: inline;
+    font-size: 32px;
+
+  }
+
+  .recipe-date {
+    font-size: 12pt;
+    color: darkgray;
+  }
+
+  .comments {
+    padding: 5px;
+    background-color: #838383;
+
+    .comment {
+
+      margin: 0 10%;
+
+      .author {
+        font-weight: bold;
+      }
+
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+
+    }
+    .comment:last-child {
+      border-bottom: none;
+    }
+  }
+
+}
