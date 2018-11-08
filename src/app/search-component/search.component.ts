@@ -1,19 +1,24 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormControl} from "@angular/forms";
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'recipe-search',
   template: `
      <div class="searchForm">
-        <input #search (keyup)="textChanged(search.value)" type="text" [placeholder]="hint"/>
+        <input [formControl]="searchControl" type="text" [placeholder]="hint"/>
      </div>`,
   inputs: ["hint"]
 })
 export class SearchComponent  {
 
+  searchControl = new FormControl();
+
   @Output() searchValueChange = new EventEmitter<string>();
 
-  textChanged(s: string) {
-     this.searchValueChange.emit(s);
+  constructor() {
+    this.searchControl.valueChanges.pipe(debounceTime(400),distinctUntilChanged())
+      .subscribe((event) => this.searchValueChange.emit(event));
   }
 
 }

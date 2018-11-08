@@ -6,7 +6,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeFilterPipe } from './recipe-filter.pipe';
 import { AppComponent } from './app.component';
 import { AddReviewComponent } from './add-review/add-review.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SearchComponent } from './search-component/search.component';
 import {HttpClientModule} from "@angular/common/http";
 
@@ -22,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
