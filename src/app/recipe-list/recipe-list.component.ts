@@ -15,8 +15,12 @@ export class RecipeListComponent implements OnInit {
   constructor(readonly service: RecipeService) {
   }
 
+  search(s? : string) {
+    this.recipes = this.service.getAll(s);
+  }
+
   ngOnInit() {
-    this.recipes = this.service.getAll();
+    this.search()
   }
 
 }

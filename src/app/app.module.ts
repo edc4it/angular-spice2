@@ -7,7 +7,7 @@ import { RecipeFilterPipe } from './recipe-filter.pipe';
 import { AppComponent } from './app.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import {FormsModule} from "@angular/forms";
-import { SearchComponentComponent } from './search-component/search-component.component';
+import { SearchComponent } from './search-component/search.component';
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
@@ -16,7 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
     RecipeFilterPipe,
     AppComponent,
     AddReviewComponent,
-    SearchComponentComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,

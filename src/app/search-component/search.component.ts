@@ -8,7 +8,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
      </div>`,
   inputs: ["hint"]
 })
-export class SearchComponentComponent  {
+export class SearchComponent  {
 
   @Output() searchValueChange = new EventEmitter<string>();
 
