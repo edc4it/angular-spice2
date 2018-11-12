@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -8,7 +8,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
      <div class="searchForm">
         <input [formControl]="searchControl" type="text" [placeholder]="hint"/>
      </div>`,
-  inputs: ["hint"]
+
 })
 export class SearchComponent  {
 
@@ -16,8 +16,11 @@ export class SearchComponent  {
 
   @Output() searchValueChange = new EventEmitter<string>();
 
+  @Input()
+  hint: string;
+
   constructor() {
-    this.searchControl.valueChanges.pipe(debounceTime(400),distinctUntilChanged())
+    this.searchControl.valueChanges.pipe(debounceTime(400), distinctUntilChanged())
       .subscribe((event) => this.searchValueChange.emit(event));
   }
 
