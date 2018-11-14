@@ -10,10 +10,10 @@ export class AddReviewComponent implements OnInit {
 
   constructor() { }
 
-  review  = new ReviewImpl("",5,"",new Date());
+  review  = new ReviewImpl("", 5, "", new Date());
 
-  submitReview(){
-    console.log("review",this.review)
+  submitReview() {
+    console.log("review", this.review);
   }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import {SearchComponent} from './search.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('SearchComponent', function () {
   let fixture: ComponentFixture<SearchComponent>;

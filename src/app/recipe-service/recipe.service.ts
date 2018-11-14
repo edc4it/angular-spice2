@@ -13,15 +13,15 @@ export class RecipeService {
   getAll(titlePattern: string): Observable<Recipe[]> {
     let httpParams = new HttpParams().set("sort", "datePublished");
     if (titlePattern && titlePattern.length > 0) {
-      httpParams  = httpParams.set("titlePattern", titlePattern)
+      httpParams  = httpParams.set("titlePattern", titlePattern);
     }
-    return this.http.get("http://localhost:5000/api/recipes",{
+    return this.http.get("http://localhost:5000/api/recipes", {
       params: httpParams
     }) as Observable<Recipe[]>;
   }
 
   get(id: string): Observable<Recipe> {
-    return this.http.get<Recipe>(`http://localhost:5000/api/recipes/${id}`)
+    return this.http.get<Recipe>(`http://localhost:5000/api/recipes/${id}`);
   }
 
 }

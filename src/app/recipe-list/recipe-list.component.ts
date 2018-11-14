@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Recipe} from "../recipe-service/recipe";
 import {RecipeService} from "../recipe-service/recipe.service";
 import {Observable, Subject} from "rxjs";
-import {switchMap} from "rxjs/operators"
+import {switchMap} from "rxjs/operators";
 import {SearchComponent} from "../search-component/search.component";
 
 @Component({
@@ -20,7 +20,7 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipes = this.searchComponent.searchValueChange.pipe(switchMap((s) => this.service.getAll(s)));
-    setTimeout(() => this.searchComponent.searchValueChange.emit(""), 0)
+    setTimeout(() => this.searchComponent.searchValueChange.emit(""), 0);
   }
 
 

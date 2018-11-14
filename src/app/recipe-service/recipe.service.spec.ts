@@ -1,5 +1,5 @@
 import {RecipeService} from "./recipe.service";
-import {defer} from "rxjs"
+import {defer} from "rxjs";
 import {TestBed} from "@angular/core/testing";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {HttpClient} from "@angular/common/http";
@@ -21,10 +21,10 @@ describe('RecipeService with spy', () => {
 
     httpClientSpy.get.and.returnValue(defer(() => Promise.resolve(data)));
 
-    service.get('123').subscribe(d => expect(d.title).toBe("Carrot and Chickpea Salad"), fail)
+    service.get('123').subscribe(d => expect(d.title).toBe("Carrot and Chickpea Salad"), fail);
 
 
-  })
+  });
 
 });
 
@@ -57,10 +57,10 @@ describe("RecipeService with TestBed", () => {
     ];
 
     service.getAll("").subscribe(d => {
-      expect(d[0].title).toBe("Apple Pies")
+      expect(d[0].title).toBe("Apple Pies");
     }, fail);
 
-    const req = httpTestingController.expectOne(req => req.url === 'http://localhost:5000/api/recipes');
+    const req = httpTestingController.expectOne(r => r.url === 'http://localhost:5000/api/recipes');
     expect(req.request.method).toEqual('GET');
     expect(req.request.params.has("sort")).toBeTruthy();
     req.flush(data);
